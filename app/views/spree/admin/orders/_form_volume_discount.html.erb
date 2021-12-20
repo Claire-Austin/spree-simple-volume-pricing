@@ -1,0 +1,8 @@
+<% if @order.volume_discount != 0.0 %>
+  <div class="alert alert-danger" id="volume-discount-order-total" data-hook="volume-discount-order_details_total">
+    <%= Spree.t(:volume_discount) %>:
+    <strong class="order-volume-discount-total">
+      <%= @order.volume_discount %>
+    </strong>
+  </div>
+<% end %>

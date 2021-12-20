@@ -1,0 +1,27 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  spree:
+    product:
+      price_for_qty: OR <span class="bold">%{price}</span> for %{quantity}
+  activerecord:
+    attributes:
+      product:
+        variants_use_master_discount: Single volume discount for all variants
+        progressive_volume_discount: Progressive volume discount
+      variant:
+        progressive_volume_discount: Progressive volume discount
+  volume_pricing: Volume Pricing
+  volume_prices: Volume Prices
+  volume_discount: Volume Discount
+  starting_from: Batch Size
+  add_volume_price: Add Volume Price
+  first: First
+  next: Next
+  additional: Additional
+  at: at
+  progressive_discount_info: By default, a single volume price selected based on the item's quantity is applied to all it's units. Select this option to have a progressively reduced price applied to successive units depending on how many are already in the cart, e.g., the first three at $10 each, the next three at $9 each, and all additional units at $8 apiece.
+  variants_use_master_discount_info: Calculate this product's volume discount based on the sum of it's variants in the cart instead of calculating it for each variant separately. This implies that the starting price and volume prices that were set for particular variants will be ignored and, instead, the product's own pricing scheme will be used.
+  variant_prices_ignored_info: This variant uses prices set at the product level. If you would like to customize the pricing scheme for this particular variant you need to disable the "Single volume discount for all variants" option in the product Volume Pricing screen.

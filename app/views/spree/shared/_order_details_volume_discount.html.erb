@@ -1,0 +1,6 @@
+<% if order.volume_discount != 0.0 %>
+  <div class="d-table-cell total"><%= t('volume_discount') %>:</div>
+  <div class="d-table-cell total text-right">
+    <%= order.volume_discount.to_html %>
+  </div>
+<% end %>
