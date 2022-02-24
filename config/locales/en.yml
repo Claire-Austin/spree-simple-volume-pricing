@@ -5,7 +5,7 @@ en:
   hello: "Hello world"
   spree:
     product:
-      price_for_qty: OR <span class="bold">%{price}</span> for %{quantity}
+      price_for_qty: OR <span class="bold text-secondary">%{price}</span> for %{quantity}
   activerecord:
     attributes:
       product:
