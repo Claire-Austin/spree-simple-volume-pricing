@@ -71,6 +71,10 @@ module Spree
       end
     end
 
+    def volume_discount_present?
+      line_items.map(&:volume_discount).sum.to_f.zero?
+    end
+
     Spree::Order.prepend self
   end
 end
