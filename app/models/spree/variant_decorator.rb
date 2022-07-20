@@ -69,7 +69,7 @@ module Spree
     def batched_total_cost(_starting_quantity, quantity)
       final_price = default_price = price
       if volume_prices.any?
-        vp = volume_prices.first
+        vp = volume_prices.where('spree_volume_prices.starting_quantity <= ?', quantity).last || volume_prices.first
         ((quantity / vp.starting_quantity).floor * vp.price) + (default_price * (quantity % vp.starting_quantity))
       else
         quantity * default_price
