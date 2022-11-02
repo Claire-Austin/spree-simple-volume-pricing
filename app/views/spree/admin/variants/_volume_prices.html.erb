@@ -1,3 +1,4 @@
+<div class="w-100">
 <fieldset>
   <legend align="center">Volume Prices</legend>
   <% if @variant.product.variants_use_master_discount %>
@@ -19,7 +20,10 @@
           <tr>
             <th><%= t("starting_from") %></th>
             <th><%= t("price") %></th>
-            <th><%= t("action") %></th>
+            <th><%= t("discount_price") %></th>
+            <th><%= t("start_date") %></th>
+            <th><%= t("end_date") %></th>
+            <th><%= t("active") %></th>
           </tr>
         </thead>
         <% f.object.volume_prices.build %>
@@ -34,3 +38,4 @@
     <% end %>
   <% end %>
 </fieldset>
+</div>

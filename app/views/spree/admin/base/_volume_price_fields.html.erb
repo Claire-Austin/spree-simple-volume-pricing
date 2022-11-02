@@ -9,6 +9,22 @@
       <%= error_message_on(f.object, :price) %>
     </td>
     <td valign="top">
+      <%= f.text_field :discount_price, :size => 10, class: 'form-control' %>
+      <%= error_message_on(f.object, :discount_price) %>
+    </td>
+    <td valign="top">
+      <%= f.text_field :start_date,value: datepicker_field_value(f.object.start_date), class: 'datepicker form-control' %>
+      <%= error_message_on(f.object, :start_date) %>
+    </td>
+    <td valign="top">
+      <%= f.text_field :end_date,value: datepicker_field_value(f.object.end_date), class: 'datepicker form-control' %>
+      <%= error_message_on(f.object, :end_date) %>
+    </td>
+    <td valign="top">
+      <%= f.check_box :active, class: 'form-control' %>
+      <%= error_message_on(f.object, :discount_price) %>
+    </td>
+    <td valign="top">
       <%= link_to_icon_remove_fields f %>
     </td>
   </tr>

@@ -70,9 +70,18 @@ module Spree
       final_price = default_price = price
       if volume_prices.any?
         vp = volume_prices.where('spree_volume_prices.starting_quantity <= ?', quantity).last || volume_prices.first
-        ((quantity / vp.starting_quantity).floor * vp.price) + (default_price * (quantity % vp.starting_quantity))
+
+        final_price_after_discount(vp, quantity, default_price)
       else
         quantity * default_price
+      end
+    end
+
+    def final_price_after_discount(vp, quantity, default_price)
+      if vp.active && vp.offer_valid?
+        ((quantity / vp.starting_quantity).floor * vp.discount_price) + (default_price * (quantity % vp.starting_quantity))
+      else
+        ((quantity / vp.starting_quantity).floor * vp.price) + (default_price * (quantity % vp.starting_quantity))
       end
     end
 
