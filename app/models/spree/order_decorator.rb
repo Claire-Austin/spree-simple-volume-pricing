@@ -35,18 +35,20 @@ module Spree
     end
 
     def force_volume_discount_update
-      products_to_update = []
+      unless ["printed", "complete", "resumed", "canceled"].include?(self.state)
+        products_to_update = []
 
-      line_items.each do |li|
-        if li.variant.requires_per_product_discount?
-          products_to_update << li.variant.product
-        else
-          li.update_volume_discount(self)
-          li.save if li.persisted?
+        line_items.each do |li|
+          if li.variant.requires_per_product_discount?
+            products_to_update << li.variant.product
+          else
+            li.update_volume_discount(self)
+            li.save if li.persisted?
+          end
         end
-      end
 
-      products_to_update.uniq.each { |p| update_product_volume_discount(p) }
+        products_to_update.uniq.each { |p| update_product_volume_discount(p) }
+      end
 
       update_with_updater!
     end
