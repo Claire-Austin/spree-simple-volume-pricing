@@ -13,11 +13,11 @@
       <%= error_message_on(f.object, :discount_price) %>
     </td>
     <td valign="top">
-      <%= f.date_field :start_date, value: f.object.start_date, class: 'form-control' %>
+      <%= f.date_field :start_date, value: f.object.start_date.try(:strftime, '%Y-%m-%d'), class: 'form-control' %>
       <%= error_message_on(f.object, :start_date) %>
     </td>
     <td valign="top">
-      <%= f.date_field :end_date, value: f.object.end_date, class: 'form-control' %>
+      <%= f.date_field :end_date, value: f.object.end_date.try(:strftime, '%Y-%m-%d'), class: 'form-control' %>
       <%= error_message_on(f.object, :end_date) %>
     </td>
     <td valign="top">
